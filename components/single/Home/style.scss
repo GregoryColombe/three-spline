@@ -43,9 +43,14 @@
         text-transform: uppercase;
 
         border: none;
+
+        transition: .3s;
         // box-shadow: 2px 0px 30px rgb(37, 37, 37);
 
-        & {
+        &:hover {
+            color: #FFF;
+
+            background-color: #000;
             cursor: pointer;
         }
     }
