@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1 class="home-title">
-      Monstering
+      The Green Door N°1
     </h1>
     <p class="home-description">
       Parter à la recherche de ce monstre en traçant ses traces de pas.
