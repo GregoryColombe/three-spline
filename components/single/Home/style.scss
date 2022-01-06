@@ -43,7 +43,7 @@
         text-transform: uppercase;
 
         border: none;
-        box-shadow: 2px 0px 30px rgb(37, 37, 37);
+        // box-shadow: 2px 0px 30px rgb(37, 37, 37);
 
         & {
             cursor: pointer;
@@ -52,8 +52,8 @@
 
     &-credits {
         position: absolute;
-        right: 1rem;
-        bottom: 2rem;
+        right: 2rem;
+        bottom: 5vh;
         
         ul {
             line-height: 1.75rem;
