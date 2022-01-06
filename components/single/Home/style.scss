@@ -46,4 +46,37 @@
             cursor: pointer;
         }
     }
+
+    &-credits {
+        position: absolute;
+        right: 1rem;
+        bottom: 2rem;
+        
+        ul {
+            line-height: 1.75rem;
+            text-align: right;
+            // text-transform: uppercase;
+
+            li {
+                font-weight: 100;
+
+                font-size: 1.25rem;
+
+                a {
+                    padding-right: 1rem;
+
+                    color: #FFF;
+                    text-decoration: none;
+                }
+
+                &:hover {
+
+                    font-weight: 600;
+
+                    border-right: 2px solid #FFF;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }
