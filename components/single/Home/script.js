@@ -12,10 +12,10 @@ export default {
       const tl = gsap.timeline()
       tl
         .to(document.querySelectorAll('.home-title, .home-description, .home-btn, .home-credits'), {
-          duration: 1.5,
+          duration: 1,
           opacity: 0,
           ease: 'power2.inOut',
-          stagger: 1
+          stagger: 0.5
         })
 
         .to(document.querySelector('.home'), {
