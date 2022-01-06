@@ -5,7 +5,9 @@
         The Green Door N°1
       </h1>
       <p class="home-description">
-        Parter à la recherche de ce monstre en traçant ses traces de pas.
+        Parter à la recherche de ce monstre en traçant ses traces de pas.<br>
+
+        ( Appuyer sur "Espace" pour vous arrêter/avancer )
       </p>
       <button class="home-btn">
         Lancer l'expérience
