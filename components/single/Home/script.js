@@ -11,7 +11,7 @@ export default {
     fadeOut () {
       const tl = gsap.timeline()
       tl
-        .to(document.querySelectorAll('.home-title, .home-description, .home-btn'), {
+        .to(document.querySelectorAll('.home-title, .home-description, .home-btn, .home-credits'), {
           duration: 1.5,
           opacity: 0,
           ease: 'power2.inOut',
