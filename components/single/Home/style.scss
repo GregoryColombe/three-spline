@@ -29,6 +29,7 @@
     }
 
     &-description {
+        max-width: 400px;
         margin: 2rem 0;
 
         font-weight: 100;
@@ -93,6 +94,29 @@
 
                     border-right: 2px solid #FFF;
                     cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &-explications {
+        position: absolute;
+        bottom: 5vh;
+        left: 2rem;
+        
+        ul {
+            padding-left: 1rem;
+
+            line-height: 1.75rem;
+            // text-transform: uppercase;
+
+            li {
+                font-weight: 100;
+
+                font-size: 1.25rem;
+                
+                &:first-of-type {
+                    text-decoration: underline;
                 }
             }
         }
