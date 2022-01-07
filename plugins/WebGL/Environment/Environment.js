@@ -7,6 +7,7 @@ import Hemisphere from './Lights/Hemisphere'
 
 import Spline from './Mesh/Spline'
 import Plane from './Mesh/Plane'
+import Box from './Mesh/Box'
 
 export default class Environment {
   get _webgl () { return new WebGL() }
@@ -18,6 +19,8 @@ export default class Environment {
 
     this.spline = new Spline()
     this.plane = new Plane()
+    this.box1 = new Box({ x: 2, y: 0, z: -9 })
+    this.box2 = new Box({ x: 2, y: 0, z: -16 })
 
     this._resources.on('ready', () => {
       // Add your components who needs loading here (Textures, GLTF, etc.)
