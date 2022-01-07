@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Vector3, Vector2 } from 'three'
+import { PerspectiveCamera, Vector2 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import WebGL from '../WebGL.js'
 
@@ -37,8 +37,8 @@ export default class Camera {
       1000
     )
 
-    this.instance.position.set(0, 1, 5)
-    this.instance.lookAt(new Vector3(0, 1, 0))
+    this.instance.position.set(0, 0.25, 0)
+    // this.instance.lookAt(new Vector3(0, 1, 0))
 
     this._scene.add(this.instance)
   }
