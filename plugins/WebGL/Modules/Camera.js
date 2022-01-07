@@ -38,8 +38,6 @@ export default class Camera {
     )
 
     this.instance.position.set(0, 0.25, 0)
-    // this.instance.lookAt(new Vector3(0, 1, 0))
-
     this._scene.add(this.instance)
   }
 
@@ -80,5 +78,6 @@ export default class Camera {
 
   update () {
     this.controls && this.controls.update()
+    console.log(this.instance.position)
   }
 }
