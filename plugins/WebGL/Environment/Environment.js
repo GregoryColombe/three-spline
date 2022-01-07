@@ -1,6 +1,6 @@
 import WebGL from '../WebGL'
 
-import GregoryModel from './Mesh/GregoryModel'
+// import GregoryModel from './Mesh/GregoryModel'
 
 import Directional from './Lights/Directional'
 import Hemisphere from './Lights/Hemisphere'
@@ -21,12 +21,12 @@ export default class Environment {
 
     this._resources.on('ready', () => {
       // Add your components who needs loading here (Textures, GLTF, etc.)
-      this.gregoryModel = new GregoryModel()
+      // this.gregoryModel = new GregoryModel()
     })
   }
 
   update () {
-    this.gregoryModel && this.gregoryModel.update()
+    // this.gregoryModel && this.gregoryModel.update()
 
     if (this.spline.active) {
       this.spline && this.spline.update()

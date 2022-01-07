@@ -1,6 +1,6 @@
-import { PerspectiveCamera, Vector3 } from 'three'
+import { PerspectiveCamera, Vector3, Vector2 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js'
+// import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js'
 import WebGL from '../WebGL.js'
 
 export default class Camera {
@@ -15,8 +15,18 @@ export default class Camera {
     this.params = {
       controls: this._debug.active
     }
+    this.mouse = {
+      x: 0,
+      y: 0
+    }
+    this.target = {
+      x: 0,
+      y: 0
+    }
+    this.windowHalf = 0
 
     this._setInstance()
+    this.addEvents()
     this._debug.active && this._setOrbitControls()
     // this._setControls()
   }
@@ -35,23 +45,44 @@ export default class Camera {
     this._scene.add(this.instance)
   }
 
-  _setControls () {
-    const controls = new PointerLockControls(this.instance, document.body)
-    const menu = document.querySelector('.menu')
+  addEvents () {
+    document.addEventListener('mousemove', (e) => {
+      if (this._webgl.environment.spline.active) {
+        this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
 
-    document.body.addEventListener('click', () => {
-      controls.lock()
-    })
-    controls.addEventListener('lock', function () {
-      menu.style.display = 'none'
-    })
+        this.mouse.x = (e.clientX - this.windowHalf.x)
+        this.mouse.y = (e.clientY - this.windowHalf.x)
 
-    controls.addEventListener('unlock', function () {
-      menu.style.display = 'block'
+        this._rotateCamera()
+      }
     })
-
-    this._scene.add(controls.getObject())
   }
+
+  _rotateCamera () {
+    this.target.x = (1 - this.mouse.x) * 0.002
+    this.target.y = (1 - this.mouse.y) * 0.002
+
+    // this._webgl.camera.instance.rotation.x += (this.target.y - this._webgl.camera.instance.rotation.x)
+    this.instance.rotation.y += (this.target.x - this.instance.rotation.y)
+  }
+
+  // _setControls () {
+  //   const controls = new PointerLockControls(this.instance, document.body)
+  //   const menu = document.querySelector('.menu')
+
+  //   document.body.addEventListener('click', () => {
+  //     controls.lock()
+  //   })
+  //   controls.addEventListener('lock', function () {
+  //     menu.style.display = 'none'
+  //   })
+
+  //   controls.addEventListener('unlock', function () {
+  //     menu.style.display = 'block'
+  //   })
+
+  //   this._scene.add(controls.getObject())
+  // }
 
   _setOrbitControls () {
     this.controls = new OrbitControls(this.instance, this._canvas)

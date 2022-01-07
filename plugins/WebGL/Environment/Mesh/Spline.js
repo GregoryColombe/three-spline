@@ -1,4 +1,4 @@
-import { BufferGeometry, LineBasicMaterial, Line, Vector3, CatmullRomCurve3, Vector2 } from 'three'
+import { BufferGeometry, LineBasicMaterial, Line, Vector3, CatmullRomCurve3 } from 'three'
 
 import WebGL from '../../WebGL'
 
@@ -60,25 +60,6 @@ export default class Spline {
         this.restart()
       }
     })
-
-    document.addEventListener('mousemove', (e) => {
-      if (this.active) {
-        this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
-
-        this.mouse.x = (e.clientX - this.windowHalf.x)
-        this.mouse.y = (e.clientY - this.windowHalf.x)
-
-        this._rotateCamera()
-      }
-    })
-  }
-
-  _rotateCamera () {
-    this.target.x = (1 - this.mouse.x) * 0.002
-    this.target.y = (1 - this.mouse.y) * 0.002
-
-    // this._webgl.camera.instance.rotation.x += (this.target.y - this._webgl.camera.instance.rotation.x)
-    this._webgl.camera.instance.rotation.y += (this.target.x - this._webgl.camera.instance.rotation.y)
   }
 
   restart () {

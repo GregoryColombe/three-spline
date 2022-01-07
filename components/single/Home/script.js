@@ -21,7 +21,8 @@ export default {
         .to(document.querySelector('.home'), {
           duration: 1.5,
           ease: 'power2.inOut',
-          backdropFilter: 'blur(0px)',
+          opacity: 0,
+          // backdropFilter: 'blur(0px)',
           onComplete: () => {
             this.$WebGL.environment.spline.active = true
             document.querySelector('.home').style.display = 'none'

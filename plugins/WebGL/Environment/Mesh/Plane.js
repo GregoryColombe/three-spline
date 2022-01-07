@@ -14,7 +14,6 @@ export default class Spline {
   }
 
   _setInstance () {
-    // Create a sine-like wave
     const geometry = new PlaneBufferGeometry(10, 45)
 
     const material = new MeshStandardMaterial({
