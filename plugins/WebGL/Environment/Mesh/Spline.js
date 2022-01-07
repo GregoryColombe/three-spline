@@ -83,6 +83,7 @@ export default class Spline {
       // this._webgl.camera.instance.position.z = 0
       // }
 
+      // Camera follow the spline
       // const tangent = this.spline.getTangent(this.tick)
       // this._webgl.camera.instance.rotation.y = -tangent.x
     }

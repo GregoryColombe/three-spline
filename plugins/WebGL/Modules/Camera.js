@@ -1,6 +1,5 @@
 import { PerspectiveCamera, Vector3, Vector2 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-// import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js'
 import WebGL from '../WebGL.js'
 
 export default class Camera {
@@ -28,7 +27,6 @@ export default class Camera {
     this._setInstance()
     this.addEvents()
     this._debug.active && this._setOrbitControls()
-    // this._setControls()
   }
 
   _setInstance () {
@@ -65,24 +63,6 @@ export default class Camera {
     // this._webgl.camera.instance.rotation.x += (this.target.y - this._webgl.camera.instance.rotation.x)
     this.instance.rotation.y += (this.target.x - this.instance.rotation.y)
   }
-
-  // _setControls () {
-  //   const controls = new PointerLockControls(this.instance, document.body)
-  //   const menu = document.querySelector('.menu')
-
-  //   document.body.addEventListener('click', () => {
-  //     controls.lock()
-  //   })
-  //   controls.addEventListener('lock', function () {
-  //     menu.style.display = 'none'
-  //   })
-
-  //   controls.addEventListener('unlock', function () {
-  //     menu.style.display = 'block'
-  //   })
-
-  //   this._scene.add(controls.getObject())
-  // }
 
   _setOrbitControls () {
     this.controls = new OrbitControls(this.instance, this._canvas)
