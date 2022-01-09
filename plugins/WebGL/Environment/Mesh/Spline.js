@@ -108,7 +108,7 @@ export default class Spline {
         case 0.7001000000000005:
           this.tick += this.speed / 10
           this.spotDetected({
-            title: 'N°2 -Une Maison',
+            title: 'N°2 - Une Maison',
             description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
           })
           break
