@@ -4,6 +4,7 @@
     left: 0;
 
     display: flex;
+    // display: none;
 
     flex-direction: column;
 
@@ -62,7 +63,6 @@
 
             background-color: #FFF;
 
-            border: none;
             cursor: pointer;
         }
     }

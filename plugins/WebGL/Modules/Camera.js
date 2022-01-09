@@ -43,7 +43,7 @@ export default class Camera {
 
   addEvents () {
     document.addEventListener('mousemove', (e) => {
-      if (this._webgl.environment.spline.active) {
+      if (this._webgl.environment.spline.start) {
         this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
 
         this.mouse.x = (e.clientX - this.windowHalf.x)
@@ -78,6 +78,5 @@ export default class Camera {
 
   update () {
     this.controls && this.controls.update()
-    console.log(this.instance.position)
   }
 }

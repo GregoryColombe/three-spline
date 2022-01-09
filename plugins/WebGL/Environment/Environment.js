@@ -31,7 +31,7 @@ export default class Environment {
   update () {
     // this.gregoryModel && this.gregoryModel.update()
 
-    if (this.spline.active) {
+    if (this.spline.walking) {
       this.spline && this.spline.update()
     }
   }

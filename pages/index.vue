@@ -1,7 +1,7 @@
 <template>
   <div>
     <SingleHome />
-    <SingleMenu />
+    <CommonTextAppear />
   </div>
 </template>
 

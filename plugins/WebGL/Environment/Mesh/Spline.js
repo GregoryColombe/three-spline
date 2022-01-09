@@ -1,6 +1,7 @@
 import { BufferGeometry, LineBasicMaterial, Line, Vector3, CatmullRomCurve3 } from 'three'
 
 import WebGL from '../../WebGL'
+import TextAppear from './../../../../components/common/TextAppear/script'
 
 export default class Spline {
   // Instantiate the application
@@ -13,7 +14,8 @@ export default class Spline {
     // Add the mothod to your constructor
     this.spline = ''
     this.tick = 0
-    this.active = false
+    this.start = false
+    this.walking = false
     this.increment = 0
     this.mouse = {
       x: 0,
@@ -24,6 +26,7 @@ export default class Spline {
       y: 0
     }
     this.windowHalf = 0
+    this.speed = 0.001
 
     this.addEvents()
     this._setInstance()
@@ -51,7 +54,7 @@ export default class Spline {
   addEvents = () => {
     document.addEventListener('keyup', (e) => {
       if (e.code === 'Space') {
-        this.active = !this.active
+        this.walking = !this.walking
       }
     })
 
@@ -62,15 +65,29 @@ export default class Spline {
     })
   }
 
+  startGame = () => {
+    this.start = true
+  }
+
+  _changeSpeed (value) {
+    this.speed = value
+  }
+
+  spotDetected () {
+    this.speed = 0.0
+    TextAppear.methods.fade('in')
+  }
+
   restart () {
-    this.active = false
+    this._webgl.environment.spline.start = false
+    this.walking = false
     this._webgl.camera.instance.position.set(0, 1, 5)
     this._webgl.camera.instance.lookAt(new Vector3(0, 1, 0))
   }
 
   update () {
-    if (this.active) {
-      this.tick += 0.001
+    if (this.walking) {
+      this.tick += this.speed
 
       const camPos = this.spline.getPoint(this.tick)
 
@@ -78,12 +95,21 @@ export default class Spline {
       this._webgl.camera.instance.position.x = camPos.x
       this._webgl.camera.instance.position.y = camPos.y + 0.25
 
+      switch (this.tick) {
+        case 0.4890000000000004:
+          this.tick += this.speed / 10
+          this.spotDetected()
+          break
+        default:
+          break
+      }
+
       // if (this._webgl.camera.instance.position.z <= this.spline.points[this.spline.points.length - 1].z) {
       // this.tick = 0
       // this._webgl.camera.instance.position.z = 0
       // }
 
-      // ACamera follow the spline
+      // Camera follow the spline
       // const tangent = this.spline.getTangent(this.tick)
       // this._webgl.camera.instance.rotation.y = -tangent.x
     }

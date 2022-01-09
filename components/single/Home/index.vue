@@ -7,7 +7,7 @@
       <p class="home-description">
         Parter à la recherche de ce monstre en traçant ses traces de pas. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur illo animi labore, Lorem ipsum dolor sit, amet consectetur adipisicing.
       </p>
-      <button class="home-btn">
+      <button class="home-btn" @click="$WebGL.environment.spline.startGame()">
         Lancer l'expérience
       </button>
     </div>

@@ -15,7 +15,7 @@ export default {
           duration: 1,
           opacity: 0,
           ease: 'power2.inOut',
-          stagger: 0.5
+          stagger: 0.3
         })
 
         .to(document.querySelector('.home'), {
@@ -24,7 +24,7 @@ export default {
           opacity: 0,
           // backdropFilter: 'blur(0px)',
           onComplete: () => {
-            this.$WebGL.environment.spline.active = true
+            this.$WebGL.environment.spline.walking = true
             document.querySelector('.home').style.display = 'none'
           }
         })

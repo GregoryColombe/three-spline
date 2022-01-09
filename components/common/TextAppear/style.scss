@@ -1,0 +1,66 @@
+.textAppear {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+
+    width: fit-content;
+    
+    margin-bottom: 20vh;
+
+    margin-left: 5vw;
+    padding: 0 5vw;
+
+    color: #FFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    opacity: 0;
+
+    &-title {
+        font-weight: 600;
+        font-size: 4rem;
+        text-transform: uppercase;
+
+    }
+
+    &-description {
+        max-width: 400px;
+
+        margin: 1.5rem 0;
+
+        font-weight: 100;
+
+        font-size: 1.25rem;
+    }
+
+    &-btn {
+        width: fit-content;
+        padding: 0.5rem 1rem;
+
+        color: #FFF;
+
+        font-weight: 400;
+
+        font-size: 1.25rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-transform: uppercase;
+
+        background-color: transparent;
+
+        border: none;
+        border: solid 1px #FFF;
+
+        transition: .3s;
+
+        &:hover {
+            color: #000;
+
+            background-color: #FFF;
+
+            cursor: pointer;
+        }
+    }
+}
