@@ -65,10 +65,6 @@ export default class Spline {
     })
   }
 
-  startGame = () => {
-    this.start = true
-  }
-
   _changeSpeed (value) {
     this.speed = value
   }

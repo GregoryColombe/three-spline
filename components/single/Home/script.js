@@ -24,6 +24,7 @@ export default {
           opacity: 0,
           // backdropFilter: 'blur(0px)',
           onComplete: () => {
+            this.$WebGL.environment.spline.start = true
             this.$WebGL.environment.spline.walking = true
             document.querySelector('.home').style.display = 'none'
           }
