@@ -73,8 +73,14 @@ export default class Spline {
     this.speed = value
   }
 
-  spotDetected () {
+  changeTextAppear (text) {
+    document.querySelector('.textAppear-title').innerHTML = text.title
+    document.querySelector('.textAppear-description').innerHTML = text.description
+  }
+
+  spotDetected (text) {
     this.speed = 0.0
+    this.changeTextAppear(text)
     TextAppear.methods.fade('in')
   }
 
@@ -98,7 +104,17 @@ export default class Spline {
       switch (this.tick) {
         case 0.4890000000000004:
           this.tick += this.speed / 10
-          this.spotDetected()
+          this.spotDetected({
+            title: 'N°1 - Des déchêts',
+            description: 'Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit.'
+          })
+          break
+        case 0.7001000000000005:
+          this.tick += this.speed / 10
+          this.spotDetected({
+            title: 'N°2 -Une Maison',
+            description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
+          })
           break
         default:
           break
