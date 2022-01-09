@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div>
+    <div class="home-container">
       <h1 class="home-title">
         The Green Door N°1
       </h1>
