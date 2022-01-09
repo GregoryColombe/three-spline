@@ -3,14 +3,7 @@ import gsap from 'gsap'
 export default {
 
   methods: {
-    addEvents () {
-      document.querySelector('.home-btn').addEventListener('click', () => {
-        this.fadeOut()
-      })
-      // document.querySelector('.home-btn').addEventListener('touchstart', () => {
-      //   this.fadeOut()
-      // })
-    },
+
     fadeOut () {
       const tl = gsap.timeline()
       tl
@@ -35,6 +28,5 @@ export default {
     }
   },
   mounted () {
-    this.addEvents()
   }
 }
