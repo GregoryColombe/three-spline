@@ -42,16 +42,31 @@ export default class Camera {
   }
 
   addEvents () {
-    document.addEventListener('mousemove', (e) => {
-      if (this._webgl.environment.spline.start) {
-        this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
+    // if is mobile or tablette
+    if ((window.innerWidth <= 1024) && (window.innerHeight <= 1366)) {
+      document.addEventListener('touchmove', (e) => {
+        if (this._webgl.environment.spline.start) {
+          this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
 
-        this.mouse.x = (e.clientX - this.windowHalf.x)
-        this.mouse.y = (e.clientY - this.windowHalf.x)
+          this.mouse.x = (e.touches[0].clientX - this.windowHalf.x)
+          this.mouse.y = (e.touches[0].clientY - this.windowHalf.x)
 
-        this._rotateCamera()
-      }
-    })
+          this._rotateCamera()
+        }
+      })
+    } else {
+      // else if is desktop
+      document.addEventListener('mousemove', (e) => {
+        if (this._webgl.environment.spline.start) {
+          this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
+
+          this.mouse.x = (e.clientX - this.windowHalf.x)
+          this.mouse.y = (e.clientY - this.windowHalf.x)
+
+          this._rotateCamera()
+        }
+      })
+    }
   }
 
   _rotateCamera () {
