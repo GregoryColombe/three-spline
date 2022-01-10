@@ -48,8 +48,8 @@ export default class Camera {
         if (this._webgl.environment.spline.start) {
           this.windowHalf = new Vector2(window.innerWidth / 2, window.innerHeight / 2)
 
-          this.mouse.x = (e.touches[0].clientX - this.windowHalf.x)
-          this.mouse.y = (e.touches[0].clientY - this.windowHalf.x)
+          this.mouse.x = (e.touches[0].clientX)
+          this.mouse.y = (e.touches[0].clientY)
 
           this._rotateCamera()
         }
