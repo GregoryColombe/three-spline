@@ -112,6 +112,13 @@ export default class Spline {
             description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
           })
           break
+        case 0.9752000000000007:
+          this.tick += this.speed / 10
+          this.spotDetected({
+            title: 'N°3 - Fin',
+            description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
+          })
+          break
         default:
           break
       }
