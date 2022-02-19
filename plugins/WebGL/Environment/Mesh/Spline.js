@@ -61,6 +61,7 @@ export default class Spline {
     document.addEventListener('keyup', (e) => {
       if (!this.closeToSpot) {
         if (e.code === 'Space') {
+          console.log('change walking')
           this.walking = !this.walking
         }
       }

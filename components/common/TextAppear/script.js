@@ -33,15 +33,17 @@ export default {
         ease: 'power2.inOut',
         onComplete: () => {
           if (inOrOur === 'out') {
-            document.querySelector('canvas').style.cursor = 'none'
             if (this.$WebGL.environment.spline.closeToSpot) {
+              document.querySelector('canvas').style.cursor = 'none'
               this.$WebGL.environment.spline.closeToSpot = false
               this.$WebGL.environment.spline.walking = true
               this.$WebGL.environment.spline.speed = 0.001
               this.$WebGL.camera.speedRotate = 0.002
+              document.querySelector('.textAppear-btn').disabled = true
             }
           } else if (inOrOur === 'in') {
             document.querySelector('canvas').style.cursor = 'initial'
+            document.querySelector('.textAppear-btn').disabled = false
             // if (this.$WebGL.environment.spline.closeToSpot) {
             // this.$WebGL.environment.spline.closeToSpot = true
             // this.$WebGL.environment.spline.walking = false
