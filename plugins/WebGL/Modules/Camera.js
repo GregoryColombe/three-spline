@@ -23,10 +23,12 @@ export default class Camera {
       y: 0
     }
     this.windowHalf = 0
+    this.speedRotate = 0.002
+    this.followActive = false
 
     this._setInstance()
     this.addEvents()
-    this._debug.active && this._setOrbitControls()
+    // this._debug.active && this._setOrbitControls()
   }
 
   _setInstance () {
@@ -36,7 +38,6 @@ export default class Camera {
       0.1,
       1000
     )
-
     this.instance.position.set(0, 0.25, 0)
     this._scene.add(this.instance)
   }
@@ -65,16 +66,32 @@ export default class Camera {
 
           this._rotateCamera()
         }
-      })
+      }, false)
     }
   }
 
   _rotateCamera () {
-    this.target.x = (1 - this.mouse.x) * 0.002
-    this.target.y = (1 - this.mouse.y) * 0.002
+    if (this._webgl.environment.spline.speed === 0 && this.speedRotate >= 0.0003) {
+      this.speedRotate = this.speedRotate - 0.000005
+    }
 
-    // this._webgl.camera.instance.rotation.x += (this.target.y - this._webgl.camera.instance.rotation.x)
+    this.target.y = (-this.mouse.y) * this.speedRotate
+    this.target.x = (-this.mouse.x) * this.speedRotate
+
     this.instance.rotation.y += (this.target.x - this.instance.rotation.y)
+  }
+
+  _followSpline () {
+    const spline = this._webgl.environment.spline.spline
+
+    if (this.instance.position.z <= spline.points[spline.points.length - 1].z) {
+      this._webgl.environment.spline.tick = 0
+      this.instance.position.z = 0
+    }
+
+    // Camera follow the spline
+    const tangent = spline.getTangent(this._webgl.environment.spline.tick)
+    this.instance.rotation.y = -tangent.x
   }
 
   _setOrbitControls () {
@@ -93,5 +110,8 @@ export default class Camera {
 
   update () {
     this.controls && this.controls.update()
+    if (this.followActive) {
+      this._followSpline()
+    }
   }
 }

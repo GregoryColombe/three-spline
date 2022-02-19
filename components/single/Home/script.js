@@ -3,7 +3,6 @@ import gsap from 'gsap'
 export default {
 
   methods: {
-
     fadeOut () {
       const tl = gsap.timeline()
       tl
@@ -27,6 +26,6 @@ export default {
         })
     }
   },
-  mounted () {
-  }
+
+  mounted () {}
 }

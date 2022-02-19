@@ -2,6 +2,9 @@
   <div>
     <SingleHome />
     <CommonTextAppear />
+
+    <!-- <CommonInfiniteMenu /> -->
+    <!-- <CommonTextAnimated />w -->
   </div>
 </template>
 
