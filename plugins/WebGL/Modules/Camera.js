@@ -71,9 +71,9 @@ export default class Camera {
   }
 
   _rotateCamera () {
-    if (this._webgl.environment.spline.speed === 0 && this.speedRotate >= 0.0003) {
-      this.speedRotate = this.speedRotate - 0.000005
-    }
+    // if (this._webgl.environment.spline.closeToSpot) {
+    //   this.speedRotate = 0.00002
+    // }
 
     this.target.y = (-this.mouse.y) * this.speedRotate
     this.target.x = (-this.mouse.x) * this.speedRotate

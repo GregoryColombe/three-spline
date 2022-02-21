@@ -59,9 +59,8 @@ export default class Spline {
 
   addEvents = () => {
     document.addEventListener('keyup', (e) => {
-      if (!this.closeToSpot) {
+      if (!this.closeToSpot && this.start) {
         if (e.code === 'Space') {
-          console.log('change walking')
           this.walking = !this.walking
         }
       }
@@ -83,7 +82,7 @@ export default class Spline {
     document.querySelector('.textAppear-description').innerHTML = text.description
   }
 
-  spotDetected (text) {
+  spotDetected (text, activeEnd) {
     this.tick += this.speed / 10
 
     this.closeToSpot = true
@@ -91,7 +90,7 @@ export default class Spline {
     this.walking = false
 
     this.changeTextAppear(text)
-    TextAppear.methods.fade('in')
+    TextAppear.methods.fade('in', activeEnd)
   }
 
   detectPositionInSpline () {
@@ -105,19 +104,19 @@ export default class Spline {
         this.spotDetected({
           title: 'N°1 - Des déchêts',
           description: 'Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit.'
-        })
+        }, true)
         break
       case this.positionsZ.spot2:
         this.spotDetected({
           title: 'N°2 - Une Maison',
           description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
-        })
+        }, false)
         break
       case this.positionsZ.spot3:
         this.spotDetected({
           title: 'N°3 - Fin',
           description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
-        })
+        }, true)
         break
       default:
         break

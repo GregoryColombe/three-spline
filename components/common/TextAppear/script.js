@@ -9,8 +9,11 @@ export default {
   },
 
   methods: {
-    fade (inOrOur) {
-      console.log('fonction lancé !')
+    fade (inOrOur, activeEnd) {
+      if (activeEnd) {
+        this.isEnded = true
+      }
+      console.log('activeEnd : ', activeEnd, ' et : ', this.isEnded)
 
       const tl = gsap.timeline()
       const target = document.querySelector('.textAppear')
@@ -42,13 +45,8 @@ export default {
               document.querySelector('.textAppear-btn').disabled = true
             }
           } else if (inOrOur === 'in') {
-            document.querySelector('canvas').style.cursor = 'initial'
             document.querySelector('.textAppear-btn').disabled = false
-            // if (this.$WebGL.environment.spline.closeToSpot) {
-            // this.$WebGL.environment.spline.closeToSpot = true
-            // this.$WebGL.environment.spline.walking = false
-            // this.$WebGL.environment.spline.speed = 0.0
-            // }
+            document.querySelector('canvas').style.cursor = 'initial'
           }
         }
       })

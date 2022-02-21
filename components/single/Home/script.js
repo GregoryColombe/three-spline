@@ -4,6 +4,8 @@ export default {
 
   methods: {
     fadeOut () {
+      document.querySelector('.home-btn').disabled = true
+
       const tl = gsap.timeline()
       tl
         .to(document.querySelectorAll('.home-title, .home-description, .home-btn, .home-credits, .home-explications'), {
