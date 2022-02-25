@@ -3,10 +3,9 @@
     <h1 class="textAppear-title" />
     <p class="textAppear-description" />
 
-    <button class="textAppear-btn" @click="isEnded ? restart() : fade('out')">
-      {{ isEnded ? "Recommencer l'expérience" : "Continuer l'expérience" }}
+    <button class="textAppear-btn" @click="isEnded === true ? restart() : onClickBtn()">
+      {{ isEnded === true ? "Recommencer l'expérience" : "Continuer l'expérience" }}
     </button>
-    <p>hello : {{ isEnded }} </p>
   </div>
 </template>
 

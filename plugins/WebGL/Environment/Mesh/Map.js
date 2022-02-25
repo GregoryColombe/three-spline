@@ -7,19 +7,19 @@ export default class Model {
   // Access to the scene
   get _scene () { return this._webgl.scene }
   // Get the datas of the resource that you want tot load
-  get _resource () { return this._webgl.resources.items.gregory }
+  get _resource () { return this._webgl.resources.items.map }
   get _time () { return this._webgl.time }
 
   constructor () {
     // Add the method to your constructor
     this._setInstance()
-    this._animate()
+    // this._animate()
   }
 
   _setInstance () {
     this.instance = this._resource
 
-    this.instance.scale.set(0.004, 0.004, 0.004)
+    this.instance.scale.set(0.5, 0.5, 0.5)
     this.instance.position.set(0, 0, -5)
 
     this.instance.traverse((child) => {

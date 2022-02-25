@@ -25,14 +25,15 @@ export default class Spline {
       y: 0
     }
     this.windowHalf = 0
-    this.speed = 0.001
+    this.speed = 0.00025
 
-    this.positionsZ = {
-      spot1: 0.4890000000000004,
-      spot2: 0.7001000000000005,
-      spot3: 0.9752000000000007
+    this.tickAdvancement = {
+      spot1: 0.1590000000000001,
+      spot2: 0.8460250000000007,
+      spot3: 0.9711250000000008
     }
     this.closeToSpot = false
+    this.activeIsEnded = false
 
     this.addEvents()
     this._setInstance()
@@ -40,12 +41,28 @@ export default class Spline {
 
   _setInstance () {
     this.spline = new CatmullRomCurve3([
-      new Vector3(0, 0, 0),
-      new Vector3(-2, 0, -5),
-      new Vector3(1, 0, -10),
-      new Vector3(4, 0, -15),
-      new Vector3(0, 0, -20),
-      new Vector3(2, 0, -40)
+      new Vector3(0, 0, 20),
+      new Vector3(1, 0, 12),
+      new Vector3(7.25, 0, 8),
+      new Vector3(6.5, 0, 4.5),
+      new Vector3(3, 0, 4),
+      new Vector3(0, 0, 4),
+      new Vector3(-5, 0, 4),
+      new Vector3(-7, 0, 3),
+      new Vector3(-6, 0, 0.5),
+      new Vector3(-4.5, 0, 0),
+      new Vector3(-3.5, 0, -2),
+      new Vector3(-5, 0, -5),
+      new Vector3(-5, 0, -6),
+      new Vector3(-3, 0, -7),
+      new Vector3(0, 0, -7),
+      new Vector3(2, 0, -7),
+      new Vector3(5, 0, -6.5),
+      new Vector3(9.5, 0, -7),
+      new Vector3(9.5, 0, -10.5),
+      new Vector3(7, 0, -13),
+      new Vector3(4, 0, -15.5),
+      new Vector3(3.25, 0, -20)
     ])
 
     const points = this.spline.getPoints(500)
@@ -82,7 +99,7 @@ export default class Spline {
     document.querySelector('.textAppear-description').innerHTML = text.description
   }
 
-  spotDetected (text, activeEnd) {
+  spotDetected (text) {
     this.tick += this.speed / 10
 
     this.closeToSpot = true
@@ -90,7 +107,7 @@ export default class Spline {
     this.walking = false
 
     this.changeTextAppear(text)
-    TextAppear.methods.fade('in', activeEnd)
+    TextAppear.methods.fade('in')
   }
 
   detectPositionInSpline () {
@@ -99,24 +116,28 @@ export default class Spline {
     this._webgl.camera.instance.position.x = camPos.x
     this._webgl.camera.instance.position.y = camPos.y + 0.25
 
+    // this._webgl.camera.instance.lookAt(0, camPos.y, camPos.z)
+
     switch (this.tick) {
-      case this.positionsZ.spot1 :
+      case this.tickAdvancement.spot1 :
         this.spotDetected({
           title: 'N°1 - Des déchêts',
           description: 'Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit.'
-        }, true)
+        }, false)
         break
-      case this.positionsZ.spot2:
+      case this.tickAdvancement.spot2:
+        this.activeIsEnded = true
+
         this.spotDetected({
           title: 'N°2 - Une Maison',
           description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
-        }, false)
+        }, true)
         break
-      case this.positionsZ.spot3:
+      case this.tickAdvancement.spot3:
         this.spotDetected({
           title: 'N°3 - Fin',
           description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
-        }, true)
+        }, false)
         break
       default:
         break
@@ -126,8 +147,8 @@ export default class Spline {
   restart () {
     this._webgl.environment.spline.start = false
     this.walking = false
-    this._webgl.camera.instance.position.set(0, 1, 5)
-    this._webgl.camera.instance.lookAt(new Vector3(0, 1, 0))
+    this._webgl.camera.instance.position.set(0, 0.25, 20)
+    this._webgl.camera.instance.lookAt(new Vector3(0, 0.25, 0))
   }
 
   update () {
@@ -136,6 +157,7 @@ export default class Spline {
     if (this.walking && !this.closeToSpot) {
       this.detectPositionInSpline()
     }
+
     // this._webgl.camera.followActive = true
   }
 }

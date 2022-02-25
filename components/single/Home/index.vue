@@ -13,7 +13,6 @@
       <div class="home-credits">
         <ul>
           <li><a href="https://www.instagram.com/web_gregory_colombe/" target="_blank">Grégory Colombe</a></li>
-          <li><a href="https://www.instagram.com/andreasbaku/" target="_blank">Andreas Demetriou</a></li>
         </ul>
       </div>
       <div class="home-explications">

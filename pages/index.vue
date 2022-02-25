@@ -3,6 +3,8 @@
     <SingleHome />
     <CommonTextAppear />
 
+    <!-- <CommonVisualizer /> -->
+
     <!-- <CommonInfiniteMenu /> -->
     <!-- <CommonTextAnimated />w -->
   </div>

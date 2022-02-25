@@ -1,7 +1,7 @@
 export default [
   {
-    name: 'gregory', // This is the value that you will used as reference key
+    name: 'map', // This is the value that you will used as reference key
     type: 'fbxModel', // gltfModel || texture || cubeTexture || fbxModel
-    path: 'webgl/models/gregory.fbx' // This is the path of your file who need to load
+    path: 'webgl/models/Base_Map_02.fbx' // This is the path of your file who need to load
   }
 ]

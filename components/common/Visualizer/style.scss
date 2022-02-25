@@ -1,0 +1,19 @@
+.visualizer {
+    &_canvas {
+        position: absolute;
+        right: 5rem;  
+        bottom: 12vh;
+        z-index: 8;
+
+        width: 5vw;
+        height: 12vh;
+
+        &:hover, &:focus, &:active {
+            cursor: pointer;
+        }
+    }
+}
+
+audio {
+    display: none;
+}

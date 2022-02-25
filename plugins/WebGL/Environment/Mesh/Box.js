@@ -18,7 +18,7 @@ export default class Spline {
     const geometry = new BoxBufferGeometry(1, 10, 1)
 
     const material = new MeshStandardMaterial({
-      color: 0x676767,
+      color: 0xFF0000,
       side: DoubleSide
     })
 

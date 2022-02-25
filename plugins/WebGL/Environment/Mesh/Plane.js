@@ -14,7 +14,7 @@ export default class Spline {
   }
 
   _setInstance () {
-    const geometry = new PlaneBufferGeometry(10, 100)
+    const geometry = new PlaneBufferGeometry(40, 100)
 
     const material = new MeshStandardMaterial({
       color: 0x0DF576,
@@ -23,6 +23,7 @@ export default class Spline {
 
     this.instance = new Mesh(geometry, material)
     this.instance.rotation.x = -Math.PI / 2
+    this.instance.position.y = -0.05
 
     // Add the Mesh to the scene
     this._scene.add(this.instance)

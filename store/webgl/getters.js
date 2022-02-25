@@ -1,1 +1,3 @@
-export default {}
+export default {
+  getIsEnded: state => state.isEnded
+}
