@@ -1,6 +1,6 @@
 import WebGL from '../WebGL'
 
-import Map from './Mesh/Map'
+import World from './Mesh/World'
 
 import Directional from './Lights/Directional'
 import Hemisphere from './Lights/Hemisphere'
@@ -24,7 +24,7 @@ export default class Environment {
 
     this._resources.on('ready', () => {
       // Add your components who needs loading here (Textures, GLTF, etc.)
-      this.map = new Map()
+      this.world = new World()
     })
   }
 

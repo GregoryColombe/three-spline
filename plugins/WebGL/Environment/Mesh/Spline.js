@@ -83,11 +83,11 @@ export default class Spline {
       }
     })
 
-    document.addEventListener('keyup', (e) => {
-      if (e.code === 'Escape') {
-        this.restart()
-      }
-    })
+    // document.addEventListener('keyup', (e) => {
+    //   if (e.code === 'Escape') {
+    //     this.restart()
+    //   }
+    // })
   }
 
   _changeSpeed (value) {
@@ -121,7 +121,7 @@ export default class Spline {
     switch (this.tick) {
       case this.tickAdvancement.spot1 :
         this.spotDetected({
-          title: 'N°1 - Des déchêts',
+          title: 'N°1 - Lorem ipsum',
           description: 'Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit.'
         }, false)
         break
@@ -129,7 +129,7 @@ export default class Spline {
         this.activeIsEnded = true
 
         this.spotDetected({
-          title: 'N°2 - Une Maison',
+          title: 'N°2 - Lorem ipsum',
           description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quia molestiae dolor suscipit tempora nihil dolores? Consequuntur, soluta officiis? Odio, tempora natus aliquam vitae quasi quas eos dicta vero dolorum dignissimos nobis.'
         }, true)
         break

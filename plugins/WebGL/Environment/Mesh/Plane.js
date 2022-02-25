@@ -17,7 +17,7 @@ export default class Spline {
     const geometry = new PlaneBufferGeometry(40, 100)
 
     const material = new MeshStandardMaterial({
-      color: 0x0DF576,
+      color: 0xFFFFFF,
       side: DoubleSide
     })
 

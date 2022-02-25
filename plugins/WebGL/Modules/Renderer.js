@@ -25,7 +25,7 @@ export default class Renderer {
     this.instance.toneMappingExposure = 1.75
     this.instance.shadowMap.enabled = true
     this.instance.shadowMap.type = PCFSoftShadowMap
-    this.instance.setClearColor('#D8FFFA')
+    this.instance.setClearColor('#FFFFFF')
     this.instance.setSize(this._sizes.width, this._sizes.height)
     this.instance.setPixelRatio(this._sizes.pixelRatio)
   }

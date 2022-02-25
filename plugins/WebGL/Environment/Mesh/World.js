@@ -1,13 +1,13 @@
 import { AnimationMixer, Mesh } from 'three'
 import WebGL from '../../WebGL'
 
-export default class Model {
+export default class World {
   // Instantiate the application
   get _webgl () { return new WebGL() }
   // Access to the scene
   get _scene () { return this._webgl.scene }
   // Get the datas of the resource that you want tot load
-  get _resource () { return this._webgl.resources.items.map }
+  get _resource () { return this._webgl.resources.items.world }
   get _time () { return this._webgl.time }
 
   constructor () {
